@@ -1,0 +1,41 @@
+
+Dependencies
+
+    libx11
+    libx11-xcb
+    libXext
+    xproto
+    xcb
+    xcb-damage
+    xcb-xfixes
+    xcb-shape
+    xcb-renderutil
+    xcb-render
+    xcb-randr
+    xcb-composite
+    xcb-image
+    xcb-present
+    xcb-xinerama
+    xcb-glx
+    pixman
+    libdbus (optional, disable with the -Ddbus=false meson configure flag)
+    libconfig (optional, disable with the -Dconfig_file=false meson configure flag)
+    libGL (optional, disable with the -Dopengl=false meson configure flag)
+    libpcre (optional, disable with the -Dregex=false meson configure flag)
+    libev
+    uthash
+
+
+dependecies for fedora
+uthast-devel libEV-devel dbus-devel mesa-libGL-devel libev-devel libX11-devel xcb-util-renderutil-devel libXext-devel pixman-devel libconfig-devel
+
+dependecies for debian or ubuntu
+
+libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl1-mesa-dev  libpcre2-dev  libevdev-dev uthash-dev libev-dev libx11-xcb-dev
+
+git clone https://github.com/jonaburg/picom
+cd picom
+meson --buildtype=release . build
+ninja -C build
+# To install the binaries in /usr/local/bin (optional)
+sudo ninja -C build install

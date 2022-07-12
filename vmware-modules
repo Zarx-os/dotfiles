@@ -1,0 +1,24 @@
+create private key MOK for UEFI SECURE BOOT FEDORA
+
+create private key from VMKey is name of key
+
+openssl req -new -x509 -newkey rsa:2048 -keyout VMKey.priv -outform DER -out VMKey.der -nodes -days 36500 -subj "/CN=VMware/"
+
+sync module vmmon
+
+ sudo /usr/src/kernels/$(uname -r)/scripts/sign-file sha256 ./VMKey.priv ./VMKey.der $(modinfo -n vmmon)
+
+sync module vmnet
+
+ sudo /usr/src/kernels/$(uname -r)/scripts/sign-file sha256 ./VMKey.priv ./VMKey.der $(modinfo -n vmnet)
+
+import MOK key
+
+sudo mokutil --import VMKey.der 
+
+Incluir contrasena que se te pedira al reiniciar (recuerdala)
+Reboot
+
+Enroll MOK 
+Continue
+Coloca la contrase que creaste 
