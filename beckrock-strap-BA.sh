@@ -179,7 +179,7 @@ blackarch_setup()
   echo
   msg 'keyring installed successfully'
   # check if pacman.conf has already a mirror
-  if ! grep -q "\[blackarch\]" /etc/pacman.conf; then
+  if ! grep -q "\[blackarch\]" /bedrock/strata/arch/etc/pacman.conf; then
     msg 'configuring pacman'
     get_mirror
     msg 'updating pacman.conf'
